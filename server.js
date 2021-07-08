@@ -12,34 +12,34 @@ const search=require("./config/connectDB")
 app.use(express.json())
 //Create and save User function
 
-//search.createSave()
+search.createSave()
 //Create Many Records with model.create()
-search.createPeoples({name:"ahmed",age:28,favoriteFoods:["brik","sbagetti"]})
+search.createPeoples({name:"ahmed",age:20,favoriteFoods:["brik","keftegi"]},)
 
 //Find User ByName
 
 search.findByName('ahmed')
 //Find User By ID function
 
-search.findById('60e5c34645e26f1c3417edef')
+search.findById('60e70c7231bbab1b0cab06fe')
 //Find User By Food
-search.findByFood('pizz')
+search.findByFood('brik')
 
 //Perform Classic Updates by Running Find, Edit, then Save
-search.findEdit()
+//search.findEdit('60e70c7231bbab1b0cab06fe')
 //Update User
-search.findAndUpdate()
+search.findAndUpdate('ahmed')
 //Delete User
 
-search.removeById()
+search.removeById('60e70c7231bbab1b0cab06fe')
 
 //Delete All User
 
-search.removePeoples('Mary')
+search.removePeoples('brik')
 
 //Get Specific user
 
-search.queryChain()
+//search.queryChain()
 
 
 
