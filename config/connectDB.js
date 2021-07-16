@@ -7,18 +7,15 @@ app.use(express.json())
 
 //ConnectDB
 const connectDB = async () => {
-try {
-    const connect = await mongoose.connect(config.get("MONGO_URI"),
-        {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-        }, 
-    err=>(err?console.error(err):console.log("mongoose connected")));
-    } 
-    catch (error) {
-    console.error(error)
-}
-}
+  try {
+
+   await mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser: true,   useUnifiedTopology: true,})
+
+    console.log("Data base connected");
+  } catch (error) {
+    console.log("Data base connection failed",error );
+  }
+};
 
 //Create Schema
 

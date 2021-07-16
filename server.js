@@ -2,11 +2,17 @@
 const express=require ('express')
 const app=express()
 const search=require("./config/connectDB")
+
+require("dotenv").config({ path: "./config/.env" });
 // 1//creat server
    //*** 1.1 run server 
    //*** 1.2 conntDB (config folder)
    //*** 1.3 creat Route
    //*** 1.4 parse Data
+
+   
+//*** 1.2-connect db
+search.connectDB(); 
 
 //3-routes
 app.use(express.json())
@@ -45,12 +51,10 @@ search.removePeoples('brik')
 
 
 
-//*** 1.2-connect db
-search.connectDB(); 
 //*** 1.1 run
-const port = process.env.PORT || 6000
-app.listen(port, err => {
+const PORT = process.env.PORT || process.env.port;
+app.listen(PORT, err => {
     err
         ? console.log(err)
-        : console.log(`the server is running on http://localhost:${port}`)
+        : console.log(`the server is running on http://localhost:${PORT}`)
 })
